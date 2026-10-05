@@ -164,7 +164,11 @@ body:has(.osdHeader) .skinBody, body:has(.osdHeader) .backgroundContainer, body:
 .cardImageContainer { background-size: cover; }
 .card { position: relative; }
 .itemsContainer { padding-block: .5rem; } /* room so the grown card is not clipped */
-.cardOverlayContainer { background: linear-gradient(to top, rgb(0 0 0 / 90%), rgb(0 0 0 / 20%) 60%, transparent) !important; }
+.cardOverlayContainer { background: linear-gradient(to top, rgb(0 0 0 / 70%), rgb(0 0 0 / 15%) 55%, transparent) !important; border-radius: inherit; }
+/* Only the whole tile grows; Jellyfin's own image zoom/crop is switched off. */
+.card .cardImageContainer, .card:hover .cardImageContainer, .card:hover .cardImage { transform: none !important; }
+.cardBox, .cardBox .cardScalable { overflow: visible; }
+.cardScalable { overflow: hidden !important; }
 .cardOverlayButton-br { opacity: 1; }
 .cardOverlayFab-primary {
   background: var(--h-text) !important; color: var(--h-brand-fg) !important;
