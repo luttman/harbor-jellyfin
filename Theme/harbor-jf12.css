@@ -163,7 +163,8 @@ body:has(.osdHeader) .skinBody, body:has(.osdHeader) .backgroundContainer, body:
 }
 .cardImageContainer { background-size: cover; }
 .card { position: relative; }
-.itemsContainer { padding-block: .5rem; } /* room so the grown card is not clipped */
+/* Room inside the scroller so the grown card is not clipped at the top/left edge */
+.scrollSlider, .itemsContainer { padding: .6rem .6rem !important; }
 .cardOverlayContainer { background: rgb(255 255 255 / 5%) !important; border-radius: inherit; transition: background .3s; }
 .card-hoverable:hover .cardOverlayContainer { background: linear-gradient(to top, rgb(0 0 0 / 45%), transparent 45%) !important; }
 /* Small play button bottom-left, extra buttons bottom-right (same placement as ElegantFin) */
