@@ -157,14 +157,21 @@ body:has(.osdHeader) .skinBody, body:has(.osdHeader) .backgroundContainer, body:
   transition: transform .2s ease-out, box-shadow .2s ease-out;
 }
 .card:hover .cardScalable, .card:focus-within .cardScalable {
-  transform: scale(1.05);
+  transform: scale(1.03);
   z-index: 2;
   box-shadow: 0 0 0 1px rgb(255 255 255 / 14%), 0 16px 32px rgb(0 0 0 / 55%);
 }
 .cardImageContainer { background-size: cover; }
 .card { position: relative; }
 .itemsContainer { padding-block: .5rem; } /* room so the grown card is not clipped */
-.cardOverlayContainer { background: linear-gradient(to top, rgb(0 0 0 / 70%), rgb(0 0 0 / 15%) 55%, transparent) !important; border-radius: inherit; }
+.cardOverlayContainer { background: rgb(255 255 255 / 5%) !important; border-radius: inherit; transition: background .3s; }
+.card-hoverable:hover .cardOverlayContainer { background: linear-gradient(to top, rgb(0 0 0 / 45%), transparent 45%) !important; }
+/* Small play button bottom-left, extra buttons bottom-right (same placement as ElegantFin) */
+.cardOverlayContainer > .cardOverlayFab-primary {
+  top: unset !important; margin: 0 !important; bottom: .9em; left: .9em; font-size: 75%; z-index: 2;
+}
+.layout-desktop .cardOverlayButton-br { bottom: 1.2em; right: .7em; font-size: .8em; z-index: 1; }
+.layout-desktop .cardOverlayButton-br > button { color: #fff; text-shadow: 0 1px 3px rgb(0 0 0 / 80%); }
 /* Only the whole tile grows; Jellyfin's own image zoom/crop is switched off. */
 .card .cardImageContainer, .card:hover .cardImageContainer, .card:hover .cardImage { transform: none !important; }
 .cardBox, .cardBox .cardScalable { overflow: visible; }
