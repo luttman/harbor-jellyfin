@@ -1,0 +1,292 @@
+/* Harbor for Jellyfin — a theme that matches DebridPlayer.
+   Install: Dashboard > General > Custom CSS code, paste this file (or add one line:
+   @import url("https://your-host/harbor-jellyfin.css");). Tested target: Jellyfin 10.9+ web. */
+
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Geist:wght@400;500;600&display=swap");
+
+/* ---------- Tokens (same values as DebridPlayer's globals.css) ---------- */
+:root {
+  --h-bg: #111213;
+  --h-card: #1a1c1d;
+  --h-raised: #1f2123;
+  --h-active: #252628;
+  --h-text: #f4f5f7;
+  --h-muted: #9b9da1;
+  --h-border: rgb(255 255 255 / 8%);
+  --h-input: rgb(255 255 255 / 12%);
+  --h-brand: #f4a25c;
+  --h-brand-fg: #111213;
+  --h-danger: oklch(0.68 0.2 25);
+  --h-r: 1rem;
+  --h-font: "Geist", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --h-display: "Fraunces", Georgia, serif;
+}
+
+/* ---------- Base ---------- */
+html, body, .skinBody, .backgroundContainer, .backgroundContainer.withBackdrop {
+  background: var(--h-bg) !important;
+  color: var(--h-text);
+  font-family: var(--h-font);
+  -webkit-font-smoothing: antialiased;
+}
+.backgroundContainer.withBackdrop { background: rgb(17 18 19 / 0.88) !important; }
+h1, h2, h3, h4, h5, h6, .emby-button, .button-flat, button, input, select, textarea, .listItemBodyText, .cardText {
+  font-family: var(--h-font);
+}
+.pageTitle, .itemName, .detailPageContent h1, .nameContainer .itemName, .sectionTitle-cards, .dialogHeaderTitle {
+  font-family: var(--h-display);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+.secondaryText, .fieldDescription, .mediaInfoItem, .listItemBodyText.secondary, .cardText-secondary, .layout-desktop .cardText-secondary {
+  color: var(--h-muted) !important;
+}
+a { color: var(--h-brand); }
+::selection { background: rgb(244 162 92 / 35%); }
+:focus-visible { outline: 3px solid rgb(244 162 92 / 70%); outline-offset: 2px; }
+.emby-button:focus, .cardBox:focus, .navMenuOption:focus { outline: none; } /* TV focus uses :focus-visible below */
+.emby-button:focus-visible, .cardBox:focus-visible, .navMenuOption:focus-visible,
+.listItem:focus-visible, .paper-icon-button-light:focus-visible {
+  outline: 3px solid rgb(244 162 92 / 70%); outline-offset: 2px;
+}
+
+/* ---------- Jellyfin 12 (MUI) ---------- */
+:root, :root[data-theme] {
+  --jf-palette-background-default: var(--h-bg);
+  --jf-palette-background-defaultChannel: 17 18 19;
+  --jf-palette-background-paper: var(--h-raised);
+  --jf-palette-background-paperChannel: 31 33 35;
+  --jf-palette-AppBar-defaultBg: rgb(17 18 19 / 0.82);
+  --jf-palette-text-primary: var(--h-text);
+  --jf-palette-text-primaryChannel: 244 245 247;
+  --jf-palette-text-secondary: var(--h-muted);
+  --jf-palette-text-secondaryChannel: 155 157 161;
+  --jf-palette-primary-main: var(--h-brand);
+  --jf-palette-primary-mainChannel: 244 162 92;
+  --jf-palette-primary-light: #f7b77f;
+  --jf-palette-primary-dark: #d98b43;
+  --jf-palette-primary-contrastText: var(--h-brand-fg);
+  --jf-palette-secondary-main: var(--h-brand);
+  --jf-palette-secondary-mainChannel: 244 162 92;
+  --jf-palette-secondary-contrastText: var(--h-brand-fg);
+  --jf-palette-error-main: var(--h-danger);
+  --jf-palette-divider: var(--h-border);
+  --jf-palette-action-hover: rgb(255 255 255 / 6%);
+  --jf-palette-action-selected: var(--h-active);
+  --jf-palette-action-focus: rgb(255 255 255 / 10%);
+  --jf-palette-FilledInput-bg: var(--h-card);
+  --jf-palette-Button-inheritContainedBg: var(--h-active);
+  --jf-palette-Button-inheritContainedHoverBg: #2f3133;
+  --jf-palette-SnackbarContent-bg: var(--h-raised);
+  --jf-palette-SnackbarContent-color: var(--h-text);
+}
+[class*="Mui"]:not(.MuiIcon-root) { font-family: inherit; }
+.MuiAppBar-root.MuiAppBar-colorDefault, .MuiAppBar-root.MuiAppBar-colorTransparent {
+  background: rgb(17 18 19 / 0.82); color: var(--h-text); box-shadow: none;
+  backdrop-filter: blur(16px) saturate(1.2); border-bottom: 1px solid var(--h-border);
+}
+.MuiAppBar-root .MuiButton-text { text-transform: none; font-weight: 500; color: var(--h-muted); }
+.MuiAppBar-root .MuiButton-text:hover, .MuiAppBar-root .MuiButton-textPrimary { color: var(--h-text); background: rgb(255 255 255 / 6%); }
+.MuiDrawer-root .MuiDrawer-paper { background: var(--h-bg); border-right: 1px solid var(--h-border); }
+.MuiDrawer-root .MuiListItemButton-root { margin: 2px 12px; border-radius: 1rem; color: var(--h-muted); }
+.MuiDrawer-root .MuiListItemButton-root.Mui-selected { background: var(--h-active); color: var(--h-text); }
+.MuiMenu-paper, .MuiPopover-paper, .MuiDialog-paper, .MuiAutocomplete-paper {
+  background: var(--h-raised); border: 1px solid var(--h-border); border-radius: var(--h-r); box-shadow: 0 16px 40px rgb(0 0 0 / 55%);
+}
+.MuiMenuItem-root { border-radius: .6rem; margin: 2px 6px; }
+.MuiButton-root { text-transform: none; font-weight: 600; border-radius: 999px; }
+.MuiButton-containedPrimary { background: var(--h-text); color: var(--h-brand-fg); box-shadow: none; }
+.MuiButton-containedPrimary:hover { background: #fff; }
+.MuiOutlinedInput-root { border-radius: .75rem; background: var(--h-card); }
+.MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track { background-color: var(--h-brand); }
+
+/* ---------- Video player: no header overlay, title + buttons stay ---------- */
+.osdHeader, .osdHeader.skinHeader, .osdHeader.skinHeader:not(.osdHeader-hidden),
+.osdHeader .MuiAppBar-root, .osdHeader .MuiToolbar-root, .videoOsd-appBar {
+  background: transparent !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important;
+  border: 0 !important; box-shadow: none !important;
+}
+.osdHeader.skinHeader::before, .osdHeader.skinHeader::after, .osdHeader .MuiAppBar-root::before, .osdHeader .MuiAppBar-root::after { content: none !important; }
+.osdHeader .osdTitle, .osdHeader .MuiTypography-root, .osdHeader .MuiIconButton-root, .osdHeader .headerButton {
+  color: #fff; text-shadow: 0 1px 3px rgb(0 0 0 / 80%);
+}
+.osdHeader .MuiSvgIcon-root, .osdHeader .material-icons { filter: drop-shadow(0 1px 2px rgb(0 0 0 / 80%)); }
+/* The video fills the screen instead of starting below a bar. */
+body > .videoPlayerContainer { inset: 0 !important; top: 0 !important; height: 100% !important; }
+
+/* ---------- Header & drawer (legacy markup, pre-12) ---------- */
+.skinHeader:not(.osdHeader), .skinHeader-withBackground:not(.osdHeader) {
+  background: rgb(17 18 19 / 0.82) !important;
+  backdrop-filter: blur(16px) saturate(1.2);
+  border-bottom: 1px solid var(--h-border);
+  box-shadow: none;
+}
+.headerTabs .emby-tab-button { color: var(--h-muted); font-weight: 500; text-transform: none; }
+.headerTabs .emby-tab-button:hover { color: var(--h-text); }
+.headerTabs .emby-tab-button-active, .headerTabs .emby-tab-button-active:hover { color: var(--h-text); }
+.emby-tabs-slider .emby-tab-button-active { border-bottom: 2px solid var(--h-brand); }
+.emby-tab-button-active::after { display: none; }
+
+.mainDrawer { background: var(--h-bg) !important; border-right: 1px solid var(--h-border); }
+.navMenuOption {
+  margin: 2px 12px; width: auto; height: 3rem; padding: 0 1rem;
+  border-radius: 1rem; color: var(--h-muted); font-weight: 500;
+  transition: background-color .15s, color .15s;
+}
+.navMenuOption:hover { background: rgb(37 38 40 / 60%) !important; color: var(--h-text); }
+.navMenuOption-selected, .navMenuOption-selected:hover { background: var(--h-active) !important; color: var(--h-text); }
+.navMenuOptionIcon { color: inherit; }
+.navMenuSectionHeader, .drawerContent .sidebarHeader {
+  color: var(--h-muted); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase;
+}
+.mainDrawer .drawerLogo, .adminDrawerLogo { filter: none; }
+
+/* ---------- Section titles ---------- */
+.sectionTitle, .sectionTitle-cards { font-size: 1.125rem; letter-spacing: -0.01em; }
+.sectionTitleContainer .sectionTitleButton, .more-link { color: var(--h-muted); font-size: .8rem; }
+.sectionTitleContainer .sectionTitleButton:hover { color: var(--h-text); }
+
+/* ---------- Poster cards ---------- */
+.cardBox { margin: 0; }
+.cardScalable, .cardImageContainer, .cardPadder + .cardImageContainer { border-radius: .75rem; }
+.cardScalable {
+  overflow: hidden; background: var(--h-raised);
+  box-shadow: 0 0 0 1px rgb(255 255 255 / 10%), 0 1px 2px rgb(0 0 0 / 40%);
+  transition: transform .2s ease-out, box-shadow .2s ease-out;
+}
+.card:hover .cardScalable, .card:focus-within .cardScalable {
+  transform: translateY(-4px);
+  box-shadow: 0 0 0 1px rgb(255 255 255 / 14%), 0 16px 32px rgb(0 0 0 / 55%);
+}
+.cardImageContainer { background-size: cover; transition: transform .2s ease-out; }
+.card:hover .cardImageContainer { transform: scale(1.04); }
+.cardOverlayContainer { background: linear-gradient(to top, rgb(0 0 0 / 90%), rgb(0 0 0 / 20%) 60%, transparent) !important; }
+.cardOverlayButton-br { opacity: 1; }
+.cardOverlayFab-primary {
+  background: var(--h-text) !important; color: var(--h-brand-fg) !important;
+  border-radius: 999px; box-shadow: 0 4px 16px rgb(0 0 0 / 50%);
+}
+.cardText { color: var(--h-text); font-size: .875rem; font-weight: 500; }
+.cardText-secondary { font-size: .75rem; font-weight: 400; }
+.cardText-first { margin-top: .5rem; }
+.cardIndicators .countIndicator, .cardIndicators .playedIndicator, .cardIndicators .indicator {
+  background: var(--h-brand) !important; color: var(--h-brand-fg) !important;
+  border-radius: 999px; font-weight: 600;
+}
+.itemProgressBar { height: 4px; background: rgb(255 255 255 / 25%); border-radius: 999px; overflow: hidden; }
+.itemProgressBarForeground { background: var(--h-brand) !important; border-radius: 999px; }
+.card-hoverable .cardOverlayContainer { transition: opacity .2s; }
+
+/* Landscape / continue-watching cards read as wider, softer tiles */
+.backdropCard .cardScalable, .overflowBackdropCard .cardScalable { border-radius: var(--h-r); }
+
+/* ---------- Buttons ---------- */
+.emby-button.raised, .raised, .button-flat.raised {
+  background: var(--h-active); color: var(--h-text);
+  border-radius: 999px; font-weight: 600; text-transform: none;
+  box-shadow: none; transition: background-color .15s, transform .15s;
+}
+.emby-button.raised:hover { background: #2f3133; }
+.emby-button.raised:active { transform: scale(.98); }
+.button-submit, .raised.button-submit, .btnPlay, .btnResume, .detailButton.btnPlay,
+.emby-button.raised.btnPlay {
+  background: var(--h-text) !important; color: var(--h-brand-fg) !important;
+}
+.button-submit:hover, .btnPlay:hover { background: #fff !important; }
+.button-delete, .raised.button-delete { background: var(--h-danger); color: var(--h-brand-fg); }
+.paper-icon-button-light { border-radius: 999px; color: var(--h-muted); transition: background-color .15s, color .15s; }
+.paper-icon-button-light:hover { background: rgb(255 255 255 / 8%); color: var(--h-text); }
+.detailButton, .detailButton-icon { border-radius: 999px; }
+.emby-button.detailButton { background: rgb(255 255 255 / 8%); }
+.emby-button.detailButton:hover { background: rgb(255 255 255 / 14%); }
+
+/* ---------- Inputs ---------- */
+.emby-input, .emby-textarea, .emby-select, .emby-select-withcolor {
+  background: var(--h-card); color: var(--h-text);
+  border: 1px solid var(--h-input); border-radius: .75rem;
+  transition: border-color .15s, box-shadow .15s;
+}
+.emby-input:focus, .emby-textarea:focus, .emby-select:focus {
+  border-color: var(--h-brand); box-shadow: 0 0 0 3px rgb(244 162 92 / 25%);
+}
+.emby-select-withcolor > option { background: var(--h-raised); color: var(--h-text); }
+.inputLabel, .inputLabelFocused, .selectLabelFocused { color: var(--h-muted); }
+.inputLabelFocused, .selectLabelFocused { color: var(--h-brand); }
+.emby-checkbox:checked + span + .checkboxOutline { background: var(--h-brand); border-color: var(--h-brand); }
+.emby-checkbox:checked + span + .checkboxOutline .checkboxIcon { color: var(--h-brand-fg); }
+.checkboxOutline { border-radius: .35rem; }
+.emby-checkbox:focus-visible + span + .checkboxOutline { outline: 3px solid rgb(244 162 92 / 70%); }
+.mdl-switch__thumb { background: var(--h-text); }
+.mdl-switch.is-checked .mdl-switch__track { background: rgb(244 162 92 / 55%); }
+.mdl-switch.is-checked .mdl-switch__thumb { background: var(--h-brand); }
+
+/* ---------- Dialogs & menus ---------- */
+.dialog, .actionSheet, .formDialog, .actionSheetContent, .toast, .dialogContent {
+  background: var(--h-raised) !important; color: var(--h-text);
+  border: 1px solid var(--h-border); border-radius: var(--h-r);
+}
+.dialogBackdrop { background: rgb(0 0 0 / 65%); backdrop-filter: blur(6px); }
+.actionSheetMenuItem { border-radius: .75rem; margin: 2px 6px; }
+.actionSheetMenuItem:hover { background: var(--h-active); }
+.actionSheetMenuItem:focus-visible { outline-offset: -3px; }
+
+/* ---------- Lists & dashboard ---------- */
+.listItem { border-radius: .75rem; }
+.listItem-border { border-color: var(--h-border) !important; }
+.listItem:hover { background: rgb(255 255 255 / 4%); }
+.paperList, .content-primary .verticalSection .paperList, .visualCardBox, .cardBox-bottompadded .visualCardBox {
+  background: var(--h-card); border: 1px solid var(--h-border); border-radius: var(--h-r);
+}
+.localnav .emby-tab-button { border-radius: 999px; }
+.dashboardSection, .serverActivity { color: var(--h-text); }
+
+/* ---------- Item detail page ---------- */
+.detailPageContent .itemName, .detailPagePrimaryContainer .itemName { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.05; }
+.detailImageContainer .cardImageContainer, .detailImageContainer .card { border-radius: var(--h-r); }
+.mediaInfoItem, .mediaInfoText { font-size: .85rem; }
+.mediaInfoItem.starRatingContainer, .starIcon, .starRatingContainer .material-icons { color: var(--h-brand) !important; }
+.mediaInfoOfficialRating, .mediaInfoItem.mediaInfoOfficialRating {
+  border: 1px solid var(--h-input); border-radius: .4rem; padding: 0 .4rem; background: transparent;
+}
+.itemMiscInfo { color: var(--h-muted); }
+.detailVerticalSection .sectionTitle { font-family: var(--h-display); }
+.personCard .cardImageContainer { border-radius: 50%; }
+.personCard .cardScalable { border-radius: 50%; }
+
+/* ---------- Video player OSD ---------- */
+.videoOsdBottom, .osdControls {
+  background: linear-gradient(to top, rgb(0 0 0 / 85%), transparent) !important;
+}
+.osdTitle, .osdMediaInfo .osdTitle { font-family: var(--h-display); font-weight: 600; }
+
+/* Seek + volume: thin 4px track, white fill, round brand knob (like DebridPlayer's .seek-range) */
+.mdl-slider-container .mdl-slider, .sliderContainer { background: transparent; }
+.mdl-slider::-webkit-slider-runnable-track { height: 4px; border-radius: 999px; background: rgb(255 255 255 / 25%); }
+.mdl-slider::-moz-range-track { height: 4px; border-radius: 999px; background: rgb(255 255 255 / 25%); }
+.mdl-slider::-moz-range-progress { height: 4px; border-radius: 999px; background: rgb(255 255 255 / 92%); }
+.mdl-slider::-webkit-slider-thumb { width: 14px; height: 14px; margin-top: -5px; border-radius: 999px; background: var(--h-brand); border: 0; }
+.mdl-slider::-moz-range-thumb { width: 14px; height: 14px; border-radius: 999px; background: var(--h-brand); border: 0; }
+.mdl-slider-background-lower, .sliderMarker, .slider-fill, .mdl-slider .mdl-slider__background-lower {
+  background: rgb(255 255 255 / 92%) !important; border-radius: 999px;
+}
+.mdl-slider-background-upper { background: rgb(255 255 255 / 25%); }
+.sliderBubble, .chapterThumbTextContainer {
+  background: var(--h-raised); color: var(--h-text); border: 1px solid var(--h-border); border-radius: .6rem;
+}
+
+/* ---------- Login ---------- */
+.standalonePage { background: var(--h-bg); }
+.manualLoginForm, .visualLoginForm { max-width: 26rem; }
+.cardImageContainer.userCard, .card.userCard .cardImageContainer { border-radius: 50%; }
+
+/* ---------- Scrollbars ---------- */
+* { scrollbar-width: thin; scrollbar-color: rgb(255 255 255 / 18%) transparent; }
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb { background: rgb(255 255 255 / 18%); border-radius: 999px; border: 2px solid transparent; background-clip: content-box; }
+::-webkit-scrollbar-thumb:hover { background: rgb(255 255 255 / 30%); background-clip: content-box; }
+
+/* ---------- Motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .cardScalable, .cardImageContainer, .emby-button { transition: none !important; }
+  .card:hover .cardScalable, .card:hover .cardImageContainer { transform: none; }
+}
