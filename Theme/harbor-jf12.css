@@ -144,7 +144,8 @@ body:has(.osdHeader) .skinBody, body:has(.osdHeader) .backgroundContainer, body:
 .mainDrawer .drawerLogo, .adminDrawerLogo { filter: none; }
 
 /* ---------- Section titles ---------- */
-.sectionTitle, .sectionTitle-cards { font-size: 1.125rem; letter-spacing: -0.01em; }
+.sectionTitle, .sectionTitle-cards, h2.sectionTitle, .sectionTitleContainer .sectionTitle { font-size: 1.6rem !important; letter-spacing: -0.015em; line-height: 1.2; }
+.sectionTitleContainer { margin-bottom: .6rem; }
 .sectionTitleContainer .sectionTitleButton, .more-link { color: var(--h-muted); font-size: .8rem; }
 .sectionTitleContainer .sectionTitleButton:hover { color: var(--h-text); }
 
