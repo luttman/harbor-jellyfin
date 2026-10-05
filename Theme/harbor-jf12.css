@@ -112,7 +112,9 @@ a { color: var(--h-brand); }
 }
 .osdHeader .MuiSvgIcon-root, .osdHeader .material-icons { filter: drop-shadow(0 1px 2px rgb(0 0 0 / 80%)); }
 /* The video fills the screen instead of starting below a bar. */
-body.hide-scroll > .videoPlayerContainer { inset: 0 !important; top: 0 !important; height: 100% !important; }
+body:has(.osdHeader) > .videoPlayerContainer { inset: 0 !important; top: 0 !important; height: 100% !important; }
+body:has(.osdHeader) .skinBody, body:has(.osdHeader) .backgroundContainer, body:has(.osdHeader) .backgroundContainer.withBackdrop { background: transparent !important; }
+.osdHeader.skinHeader { height: auto; }
 
 /* ---------- Header & drawer (legacy markup, pre-12) ---------- */
 .skinHeader:not(.osdHeader), .skinHeader-withBackground:not(.osdHeader) {
