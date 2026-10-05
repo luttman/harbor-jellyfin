@@ -422,6 +422,7 @@ body:has(.osdHeader) .skinBody, body:has(.osdHeader) .backgroundContainer, body:
 
 /* With a clear logo the title text is hidden: the (shorter) block sits lower and the logo stands clear above it */
 .layout-desktop #itemDetailPage:has(.detailLogo:not(.hide)) .detailRibbon { top: calc(var(--hero-h) - 23rem) !important; }
+.layout-desktop #itemDetailPage .detailLogo:not(.hide) { display: block !important; }
 .layout-desktop #itemDetailPage:has(.detailLogo:not(.hide)) .detailLogo { top: calc(var(--hero-h) - 35rem) !important; filter: drop-shadow(0 2px 12px rgb(0 0 0 / 60%)); }
 /* Episode / poster tile in the info section: 30% smaller */
 .layout-desktop #itemDetailPage .detailImageContainer .card { zoom: .7; }
