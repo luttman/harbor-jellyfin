@@ -376,3 +376,34 @@ body:has(.osdHeader) .skinBody, body:has(.osdHeader) .backgroundContainer, body:
 .personCard .cardText-secondary { font-size: .7rem; }
 .mainDetailButtons .btnPlay, .mainDetailButtons .btnResume { flex-direction: row !important; white-space: nowrap; flex: none; }
 .mainDetailButtons .btnPlay .detailButton-content { display: flex; flex-direction: row; align-items: center; }
+
+/* ---------- Top nav: no pill behind the buttons, active page = light text + amber underline ---------- */
+.MuiAppBar-root .MuiButton-text, .MuiAppBar-root .MuiButton-text:hover, .MuiAppBar-root .MuiButton-textPrimary, .MuiAppBar-root .MuiButton-textPrimary:hover { background: transparent !important; border-radius: 0; }
+.MuiAppBar-root .MuiButton-text:hover { color: var(--h-text); }
+.MuiAppBar-root .MuiButton-textPrimary { color: var(--h-text); box-shadow: inset 0 -2px 0 var(--h-brand); }
+
+/* ---------- Detail page hero: full-screen backdrop, centred title block, scroll for the rest ---------- */
+.layout-desktop #itemDetailPage { position: relative; }
+.layout-desktop #itemDetailPage .itemBackdrop {
+  display: block !important; position: absolute; top: 0; left: 0; right: 0; height: 100vh; z-index: 0;
+  background-size: cover; background-position: center 20%;
+  -webkit-mask: linear-gradient(#000 55%, transparent 100%); mask: linear-gradient(#000 55%, transparent 100%);
+}
+.layout-desktop #itemDetailPage .detailPageWrapperContainer { position: relative; z-index: 1; padding-top: 100vh; margin-top: 0; }
+.layout-desktop #itemDetailPage .detailRibbon {
+  position: absolute !important; left: 0; right: 0; top: calc(100vh - 19rem); margin: 0 !important; padding: 0 2rem;
+  min-height: 0; height: auto; flex-direction: column; align-items: center; text-align: center; z-index: 2;
+}
+.layout-desktop #itemDetailPage .detailRibbon .infoWrapper { display: flex; flex-direction: column; align-items: center; width: 100%; }
+.layout-desktop #itemDetailPage .nameContainer { text-align: center; }
+.layout-desktop #itemDetailPage .nameContainer .itemName, .layout-desktop #itemDetailPage .nameContainer h1 {
+  font-size: clamp(2.25rem, 4.5vw, 3.75rem); line-height: 1.05; text-shadow: 0 2px 16px rgb(0 0 0 / 60%);
+}
+.layout-desktop #itemDetailPage .itemMiscInfo, .layout-desktop #itemDetailPage .mainDetailButtons { justify-content: center; }
+.layout-desktop #itemDetailPage .detailLogo {
+  position: absolute; left: 25%; width: 50%; height: 9rem; top: calc(100vh - 27rem); z-index: 2; margin: 0;
+  background-position: center bottom; background-size: contain; background-repeat: no-repeat;
+}
+.layout-desktop #itemDetailPage .detailLogo:not(.hide) ~ .detailPageWrapperContainer .nameContainer h1 { display: none; }
+
+.layout-desktop #itemDetailPage .detailPagePrimaryContainer { position: static !important; }
