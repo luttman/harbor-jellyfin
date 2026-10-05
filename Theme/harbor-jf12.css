@@ -397,7 +397,7 @@ body:has(.osdHeader) .skinBody, body:has(.osdHeader) .backgroundContainer, body:
   background: linear-gradient(to bottom, transparent calc(var(--hero-h) - 8rem), var(--h-bg) calc(var(--hero-h) - 1rem));
 }
 .layout-desktop #itemDetailPage .detailRibbon {
-  position: absolute !important; left: 0; right: 0; top: calc(var(--hero-h) - 32.5rem) !important; margin: 0 !important; padding: 0 2rem;
+  position: absolute !important; left: 0; right: 0; top: calc(var(--hero-h) - 34.5rem) !important; margin: 0 !important; padding: 0 2rem;
   min-height: 0; height: auto; flex-direction: column; align-items: center; text-align: center; z-index: 2;
 }
 .layout-desktop #itemDetailPage .detailRibbon .infoWrapper { display: flex; flex-direction: column; align-items: center; width: 100%; }
@@ -407,7 +407,7 @@ body:has(.osdHeader) .skinBody, body:has(.osdHeader) .backgroundContainer, body:
 }
 .layout-desktop #itemDetailPage .itemMiscInfo, .layout-desktop #itemDetailPage .mainDetailButtons { justify-content: center; }
 .layout-desktop #itemDetailPage .detailLogo {
-  position: absolute; left: 25%; width: 50%; height: 9rem; top: calc(var(--hero-h) - 40.5rem) !important; z-index: 2; margin: 0;
+  position: absolute; left: 25%; width: 50%; height: 10rem; top: calc(var(--hero-h) - 45rem) !important; z-index: 2; margin: 0;
   background-position: center bottom; background-size: contain; background-repeat: no-repeat;
 }
 .layout-desktop #itemDetailPage .detailLogo:not(.hide) ~ .detailPageWrapperContainer .nameContainer h1 { display: none; }
@@ -419,3 +419,9 @@ body:has(.osdHeader) .skinBody, body:has(.osdHeader) .backgroundContainer, body:
 .layout-desktop #itemDetailPage .nameContainer h3, .layout-desktop #itemDetailPage .nameContainer .itemName, .layout-desktop #itemDetailPage .parentName {
   color: #fff; text-shadow: 0 1px 2px rgb(0 0 0 / 90%), 0 2px 10px rgb(0 0 0 / 75%), 0 0 32px rgb(0 0 0 / 60%) !important;
 }
+
+/* With a clear logo the title text is hidden: the (shorter) block sits lower and the logo stands clear above it */
+.layout-desktop #itemDetailPage:has(.detailLogo:not(.hide)) .detailRibbon { top: calc(var(--hero-h) - 23rem) !important; }
+.layout-desktop #itemDetailPage:has(.detailLogo:not(.hide)) .detailLogo { top: calc(var(--hero-h) - 35rem) !important; filter: drop-shadow(0 2px 12px rgb(0 0 0 / 60%)); }
+/* Episode / poster tile in the info section: 30% smaller */
+.layout-desktop #itemDetailPage .detailImageContainer .card { zoom: .7; }
