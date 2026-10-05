@@ -266,8 +266,6 @@ body:has(.osdHeader) .skinBody, body:has(.osdHeader) .backgroundContainer, body:
 }
 .itemMiscInfo { color: var(--h-muted); }
 .detailVerticalSection .sectionTitle { font-family: var(--h-display); }
-.personCard .cardImageContainer { border-radius: 50%; }
-.personCard .cardScalable { border-radius: 50%; }
 
 /* ---------- Video player OSD ---------- */
 .videoOsdBottom, .osdControls {
@@ -351,3 +349,27 @@ body:has(.osdHeader) .skinBody, body:has(.osdHeader) .backgroundContainer, body:
   .logo-container { top: calc(100% - 15em); } .left-arrow, .right-arrow { display: none !important; }
   .play-button { order: 2; }
 }
+
+/* ---------- Detail page, DebridPlayer style ---------- */
+.detailRibbon { background: transparent !important; backdrop-filter: none !important; border: 0 !important; }
+.itemMiscInfo { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; }
+.itemMiscInfo .mediaInfoItem, .itemMiscInfo .endsAt {
+  margin: 0 !important; padding: .2rem .7rem; border-radius: 999px; background: var(--h-active);
+  color: var(--h-text); font-size: .75rem; font-weight: 600; line-height: 1.4;
+}
+.itemMiscInfo .mediaInfoItem::before, .itemMiscInfo .mediaInfoItem::after { content: none !important; }
+.itemMiscInfo .mediaInfoOfficialRating { border: 0; }
+/* Play: light pill with label, like DebridPlayer */
+.mainDetailButtons .btnPlay, .mainDetailButtons .btnResume {
+  width: auto; height: 2.75rem; padding: 0 1.4rem 0 1rem; gap: .35rem; border-radius: 999px;
+  display: inline-flex; align-items: center; background: var(--h-text) !important; color: var(--h-brand-fg) !important; font-weight: 600;
+}
+.mainDetailButtons .btnPlay::after, .mainDetailButtons .btnResume::after { content: attr(title); font-size: .95rem; }
+.mainDetailButtons .detailButton:not(.btnPlay):not(.btnResume) { width: 2.75rem; height: 2.75rem; background: var(--h-active); }
+/* Cast & crew: round avatars, name underneath */
+.personCard { width: 8rem !important; text-align: center; }
+.personCard .cardScalable { aspect-ratio: 1 / 1; border-radius: 50%; width: 6.5rem; margin-inline: auto; }
+.personCard .cardPadder { padding-bottom: 100% !important; }
+.personCard .cardImageContainer { border-radius: 50%; background-position: center 25%; }
+.personCard .cardText { text-align: center; }
+.personCard .cardText-secondary { font-size: .7rem; }
