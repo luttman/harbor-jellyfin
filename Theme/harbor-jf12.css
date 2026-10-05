@@ -29,7 +29,9 @@ html, body, .skinBody, .backgroundContainer, .backgroundContainer.withBackdrop {
   font-family: var(--h-font);
   -webkit-font-smoothing: antialiased;
 }
-.backgroundContainer.withBackdrop { background: rgb(17 18 19 / 0.88) !important; }
+/* No page backdrop on Home / Movies / Shows (item pages draw their own hero via .itemBackdrop). */
+.backdropContainer, .backdropImage { display: none !important; }
+.backgroundContainer.withBackdrop { background: var(--h-bg) !important; }
 h1, h2, h3, h4, h5, h6, .emby-button, .button-flat, button, input, select, textarea, .listItemBodyText, .cardText {
   font-family: var(--h-font);
 }
