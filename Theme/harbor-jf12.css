@@ -162,7 +162,7 @@ body:has(.osdHeader) .skinBody, body:has(.osdHeader) .backgroundContainer, body:
   box-shadow: 0 0 0 1px rgb(255 255 255 / 14%), 0 16px 32px rgb(0 0 0 / 55%);
 }
 .cardImageContainer { background-size: cover; }
-.card { position: relative; }
+.card { position: relative; contain: none !important; } /* JF12 sets contain:content (paint clip), which cut the grown tile at top/left */
 /* Room inside the scroller so the grown card is not clipped at the top/left edge */
 .scrollSlider, .itemsContainer { padding: .6rem .6rem !important; }
 .cardOverlayContainer { background: rgb(255 255 255 / 5%) !important; border-radius: inherit; transition: background .3s; }
