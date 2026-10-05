@@ -306,3 +306,48 @@ body:has(.osdHeader) .skinBody, body:has(.osdHeader) .backgroundContainer, body:
   .cardScalable, .cardImageContainer, .emby-button { transition: none !important; }
   .card:hover .cardScalable { transform: none; }
 }
+
+/* ---------- Cards: no favourite heart ---------- */
+.cardOverlayButton-br button[is="emby-ratingbutton"] { display: none !important; }
+
+/* ---------- Login ---------- */
+#loginPage .btnForgotPassword, #loginPage .btnManual, #loginPage .btnQuick {
+  display: block; width: 100%; max-width: 26rem; margin: .75rem auto 0 !important;
+}
+#loginPage .manualLoginForm, #loginPage .visualLoginForm { margin-inline: auto; }
+#loginPage .button-submit { margin-top: 1.25rem; }
+
+/* ---------- Media Bar plugin (layout from ElegantFin's media-bar add-on, Harbor colours) ---------- */
+:root { --sidePadding: 1.5rem; --appBarHeight: 4.5rem; --largerRadius: 1.5rem; --defaultBorder: 1px solid var(--h-border); }
+#slides-container {
+  position: absolute; left: var(--sidePadding); width: calc(100vw - var(--sidePadding) * 2);
+  height: 62%; top: calc(var(--appBarHeight) + 1.25em); overflow: visible; user-select: none;
+}
+.slide { border: var(--defaultBorder); border-radius: var(--largerRadius); overflow: hidden; transition: border 0s; }
+.backdrop-container, .backdrop-overlay, .backdrop:not(.tmla-mask) { background-color: transparent; mask-image: none; -webkit-mask-image: none; }
+.backdrop-overlay { background: linear-gradient(0deg, rgb(0 0 0 / 85%), transparent 40%); }
+.play-button { order: 1; font-weight: 500; }
+.detail-button, .favorite-button { order: 2; }
+.play-button::before, .detail-button::before, .favorite-button::before, .favorite-button.favorited::before { font-weight: 400; }
+.age-rating { font-size: .8em; }
+.rating-value { flex-wrap: wrap; justify-content: center; }
+.separator-icon { color: var(--h-muted); font-size: 5px; }
+.pause-button, .volume-toggle { top: 1em !important; }
+.dot { background-color: var(--h-text) !important; border-radius: .25em; height: .375em; width: .375em; opacity: .5; transition: width .5s; }
+.dot.active { transform: none; width: 2em; opacity: 1; }
+@media (orientation: landscape) {
+  .button-container, .dots-container, .genre, .info-container, .plot-container { top: unset; }
+  .button-container { bottom: 3em; }
+  .dots-container { bottom: 4.5em; }
+  .plot-container { bottom: 7em; height: 4em; }
+  .genre { bottom: 12em; }
+  .info-container { bottom: 14em; }
+  .logo-container { align-items: flex-end; max-width: 35vw; top: 3%; }
+  .gradient-overlay { background: linear-gradient(37deg, rgb(0 0 0 / 20%) 32%, rgb(17 18 19 / 7%) 47%, transparent); mask: none; -webkit-mask: none; }
+}
+@media (max-width: 767px) and (orientation: portrait) {
+  .button-container { bottom: 3em; } .genre, .tomato-rating { display: none; }
+  .dots-container { bottom: 6em; } .info-container { bottom: 5em; }
+  .logo-container { top: calc(100% - 15em); } .left-arrow, .right-arrow { display: none !important; }
+  .play-button { order: 2; }
+}
