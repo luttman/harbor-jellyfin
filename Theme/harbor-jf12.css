@@ -33,7 +33,7 @@ html, body, .skinBody, .backgroundContainer, .backgroundContainer.withBackdrop {
 body:not(:has(#itemDetailPage:not(.hide))) .backdropContainer { display: none !important; }
 .backgroundContainer.withBackdrop { background: var(--h-bg) !important; }
 /* On item pages the global backdrop is the hero image: let it show, then cover it with a dark panel below the fold. */
-body:has(#itemDetailPage:not(.hide)) .backgroundContainer, body:has(#itemDetailPage:not(.hide)) .backgroundContainer.withBackdrop, body:has(#itemDetailPage:not(.hide)) .skinBody { background: transparent !important; }
+body:has(#itemDetailPage:not(.hide)), body:has(#itemDetailPage:not(.hide)) .backgroundContainer, body:has(#itemDetailPage:not(.hide)) .backgroundContainer.withBackdrop, body:has(#itemDetailPage:not(.hide)) .skinBody { background: transparent !important; }
 h1, h2, h3, h4, h5, h6, .emby-button, .button-flat, button, input, select, textarea, .listItemBodyText, .cardText {
   font-family: var(--h-font);
 }
