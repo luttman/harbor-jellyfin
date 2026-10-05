@@ -157,11 +157,13 @@ body:has(.osdHeader) .skinBody, body:has(.osdHeader) .backgroundContainer, body:
   transition: transform .2s ease-out, box-shadow .2s ease-out;
 }
 .card:hover .cardScalable, .card:focus-within .cardScalable {
-  transform: translateY(-4px);
+  transform: scale(1.05);
+  z-index: 2;
   box-shadow: 0 0 0 1px rgb(255 255 255 / 14%), 0 16px 32px rgb(0 0 0 / 55%);
 }
-.cardImageContainer { background-size: cover; transition: transform .2s ease-out; }
-.card:hover .cardImageContainer { transform: scale(1.04); }
+.cardImageContainer { background-size: cover; }
+.card { position: relative; }
+.itemsContainer { padding-block: .5rem; } /* room so the grown card is not clipped */
 .cardOverlayContainer { background: linear-gradient(to top, rgb(0 0 0 / 90%), rgb(0 0 0 / 20%) 60%, transparent) !important; }
 .cardOverlayButton-br { opacity: 1; }
 .cardOverlayFab-primary {
@@ -290,5 +292,5 @@ body:has(.osdHeader) .skinBody, body:has(.osdHeader) .backgroundContainer, body:
 /* ---------- Motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   .cardScalable, .cardImageContainer, .emby-button { transition: none !important; }
-  .card:hover .cardScalable, .card:hover .cardImageContainer { transform: none; }
+  .card:hover .cardScalable { transform: none; }
 }
