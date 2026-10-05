@@ -373,3 +373,5 @@ body:has(.osdHeader) .skinBody, body:has(.osdHeader) .backgroundContainer, body:
 .personCard .cardImageContainer { border-radius: 50%; background-position: center 25%; }
 .personCard .cardText { text-align: center; }
 .personCard .cardText-secondary { font-size: .7rem; }
+.mainDetailButtons .btnPlay, .mainDetailButtons .btnResume { flex-direction: row !important; white-space: nowrap; flex: none; }
+.mainDetailButtons .btnPlay .detailButton-content { display: flex; flex-direction: row; align-items: center; }
