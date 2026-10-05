@@ -413,3 +413,9 @@ body:has(.osdHeader) .skinBody, body:has(.osdHeader) .backgroundContainer, body:
 .layout-desktop #itemDetailPage .detailLogo:not(.hide) ~ .detailPageWrapperContainer .nameContainer h1 { display: none; }
 
 .layout-desktop #itemDetailPage .detailPagePrimaryContainer { position: static !important; }
+
+/* Readable over light backdrops: layered shadow on series name + episode title in the hero */
+.layout-desktop #itemDetailPage .nameContainer, .layout-desktop #itemDetailPage .nameContainer a, .layout-desktop #itemDetailPage .nameContainer h1,
+.layout-desktop #itemDetailPage .nameContainer h3, .layout-desktop #itemDetailPage .nameContainer .itemName, .layout-desktop #itemDetailPage .parentName {
+  color: #fff; text-shadow: 0 1px 2px rgb(0 0 0 / 90%), 0 2px 10px rgb(0 0 0 / 75%), 0 0 32px rgb(0 0 0 / 60%) !important;
+}
